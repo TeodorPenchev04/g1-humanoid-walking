@@ -11,12 +11,8 @@ Reinforcement learning for the **Unitree G1** humanoid, built from scratch on a 
 
 1. **A velocity-tracking walking benchmark (v1)** with a human-like gait: alternating steps on a gait clock, bent knees, flat-footed landings, symmetric leg paths, and arms swinging opposite the legs. A from-scratch PPO baseline reproduces the gait across seeds, with **0 falls** in the benchmark evaluation.
 2. **A PPO vs DISC study** of sample efficiency on that benchmark, including a reimplementation of DISC (Han & Sung, ICML 2019) checked against SB3.
-3. **Stair locomotion with TD-regularized PPO**, now in progress as a KAIST Undergraduate Research Participation project at the Mobility Intelligence & Control Lab.
 
-| Folder | Project | Status |
-|---|---|---|
-| [`flat_walking_v1/`](flat_walking_v1/) | Flat-ground walking benchmark, SymmetricPPO baseline, PPO vs DISC | Done, frozen |
-| [`stairs_tdppo/`](stairs_tdppo/) | Stair ascent/descent, TD-regularized PPO, online policy improvement | In progress |
+All code, checkpoints and the full write-up are in [`flat_walking_v1/`](flat_walking_v1/).
 
 ---
 
@@ -86,15 +82,9 @@ Two seeds per algorithm is a small sample, and runs are not bit-for-bit reproduc
 
 ---
 
-## 3. Next: stair locomotion with TD-regularized PPO
+## What's next
 
-The current project extends this work to **stair ascent and descent** on the G1, in three stages:
-
-1. **Simulation pretraining.** A MuJoCo stair environment with a curriculum (flat → single step → ascent → descent → harder geometry) and domain randomization. Standard PPO is compared with **TD-regularized PPO** (Parisi et al., 2019), which penalizes policy updates where the critic's Bellman (TD) error is large.
-2. **Online adaptation in simulation.** The pretrained actor and critic are updated from new experience under controlled mismatches in friction, actuators, mass and sensing.
-3. **Supervised trials on the physical G1**, if Stage 2 is validated.
-
-Work lives in [`stairs_tdppo/`](stairs_tdppo/).
+This work continues as a separate project on **stair ascent and descent** for the G1, comparing standard PPO with **TD-regularized PPO** (Parisi et al., 2019), which penalizes policy updates where the critic's Bellman (TD) error is large. Pretrained policies are then adapted online, first in simulation under controlled dynamics mismatch and later on the physical robot.
 
 ---
 
