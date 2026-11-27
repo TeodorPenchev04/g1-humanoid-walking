@@ -1,7 +1,7 @@
 """Compare the sample efficiency of training runs (e.g. PPO vs DISC) on benchmark v1.
 
-    python compare_runs.py --model ../mujoco_menagerie/unitree_g1/scene.xml \
-        --runs ../g1_experiments/ppo_vs_disc/ppo_s1 ../g1_experiments/ppo_vs_disc/disc_s1 --out compare.png
+    python compare_runs.py --model ../../mujoco_menagerie/unitree_g1/scene.xml \
+        --runs experiments/ppo_vs_disc/ppo_s1 experiments/ppo_vs_disc/disc_s1 --out compare.png
 
 Plots each run's un-normalized episode return and length against env steps (from the Monitor
 CSVs train.py writes to <run>/monitor), and evaluates every saved checkpoint with

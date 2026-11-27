@@ -1,6 +1,6 @@
 """Standard evaluation for benchmark v1: deterministic rollouts at fixed commands, gait metrics.
 
-    python benchmark_eval.py --model ../mujoco_menagerie/unitree_g1/scene.xml \
+    python benchmark_eval.py --model ../../mujoco_menagerie/unitree_g1/scene.xml \
         --policies checkpoints/g1_ppo_seed1_16M.zip checkpoints/g1_ppo_seed2_16M.zip --json results.json
 
 Each policy runs --episodes episodes of 20 s per command (reset seeds 0..episodes-1); the first
